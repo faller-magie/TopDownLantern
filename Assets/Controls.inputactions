@@ -6,7 +6,7 @@
             "id": "6f9bc03d-258d-4fc9-baf7-3e0f6ec3f3f5",
             "actions": [
                 {
-                    "name": "Move",
+                    "name": "Movement",
                     "type": "Button",
                     "id": "7ddcba0f-c4db-4681-9bf6-303901d327d9",
                     "expectedControlType": "Button",
@@ -16,13 +16,13 @@
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
+                    "name": "Arrows",
                     "id": "62f8589b-f6fb-47df-a6f8-97358e186026",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Movement",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -33,7 +33,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -44,7 +44,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -55,7 +55,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -66,7 +66,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
