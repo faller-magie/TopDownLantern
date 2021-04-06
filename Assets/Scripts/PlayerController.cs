@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-   [SerializeField] float speed;
-   [SerializeField] float maxSpeed;
+   [SerializeField] float speed = 10f;
+   [SerializeField] float maxSpeed = 40f;
 
     private Controls controls;
     private Vector2 movement;
@@ -17,8 +17,8 @@ public class PlayerController : MonoBehaviour
     {
         controls = new Controls();
         controls.Enable();
-        controls.Player.Move.performed += OnMovePerformed;
-        controls.Player.Move.canceled += OnMoveCanceled;
+        controls.Player.Movement.performed += OnMovePerformed;
+        controls.Player.Movement.canceled += OnMoveCanceled;
     }
     private void OnMovePerformed(InputAction.CallbackContext obj)
     {
@@ -34,11 +34,13 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        Vector2 moveInput = controls.Player.Movement.ReadValue<Vector2>();
+        myRB.velocity = moveInput * speed;
     }
 }
