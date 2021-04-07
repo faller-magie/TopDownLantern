@@ -16,23 +16,25 @@ public class LoadGame : MonoBehaviour
 
         StartCoroutine(LoadScreenCoroutine());
     }
-
+    
     IEnumerator LoadScreenCoroutine()
     {
         var ecran = Instantiate(sceneToLoad);
         DontDestroyOnLoad(ecran);
 
-        var chargement = SceneManager.LoadSceneJeu("Jeu");
+        /*var chargement = SceneManager.LoadSceneJeu("Jeu");
         while (chargement.isDone == false)
         {
             if (chargement.progress >= 1f)
             {
                 chargement.allowSceneactivation = true;
                 // disparition image
-            }
+            }*/
 
             yield return new WaitForSeconds(2);
-        }
+       // yield return null;
+    
+    
 
     }
 }
