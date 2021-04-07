@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test : MonoBehaviour
+public class Quitter : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public void quitte()
+    {
+        Application.Quit();
+    }
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
