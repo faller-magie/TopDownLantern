@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-   [SerializeField] float speed = 10f;
-   [SerializeField] float maxSpeed = 40f;
+   [SerializeField] float speed = 0f;
+   
 
     private Controls controls;
     private Vector2 movement;
