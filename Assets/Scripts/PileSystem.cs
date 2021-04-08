@@ -25,7 +25,7 @@ public class PileSystem : MonoBehaviour
         timerText.text=(timer).ToString();
     }
 
-    public void PickUpPile(GameObject g)
+    public void PickUpPile()
     {
         timer+=pileDuration;
         Debug.Log("pile récupéré !"); 

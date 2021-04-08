@@ -6,8 +6,12 @@ public class PowerUpPile : MonoBehaviour
 {
     public PileSystem pileSystem;
 
-    void Start()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-       pileSystem.PickUpPile(gameObject);
+        if(other.gameObject.tag == "Pile")
+        {
+            pileSystem.PickUpPile();
+            Destroy(other.gameObject);
+        }
     }
 }
