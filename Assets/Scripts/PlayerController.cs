@@ -6,19 +6,27 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-   [SerializeField] float speed;
-   [SerializeField] float maxSpeed;
-
+   [SerializeField] private float speed = 8f;
     private Controls controls;
     private Vector2 movement;
     private Rigidbody2D myRB;
+
+    public float lightIntensity;
+
+
+    public float maxIntensity;
+    public float minIntensity;
+
+    private Animator anim;
+
+    private bool HitWall = false;
     
     private void OnEnable()
     {
         controls = new Controls();
         controls.Enable();
-        controls.Player.Move.performed += OnMovePerformed;
-        controls.Player.Move.canceled += OnMoveCanceled;
+        controls.Player.Movement.performed += OnMovePerformed;
+        controls.Player.Movement.canceled += OnMoveCanceled;
     }
     private void OnMovePerformed(InputAction.CallbackContext obj)
     {
@@ -34,11 +42,34 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
+
+        lightIntensity = maxIntensity;
+
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
+    void FixedUpdate()
+    {
+        Vector2 moveInput = controls.Player.Movement.ReadValue<Vector2>();
+        myRB.velocity = moveInput * speed;
+    }
+
     void Update()
     {
+        if(lightIntensity > minIntensity)
+        {
+            lightIntensity-=(Time.deltaTime*0.1f);
+        }
+
+        anim.SetFloat("L", lightIntensity);
         
+    }
+    private void OnEnter2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Mur"))
+        {
+            HitWall = true;
+        }
     }
 }
