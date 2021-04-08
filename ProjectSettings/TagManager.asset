@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pile
   - Mur
+  - Key
   layers:
   - Default
   - TransparentFX
