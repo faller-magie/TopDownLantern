@@ -10,9 +10,9 @@ public class LoadGame : MonoBehaviour
     [SerializeField] private GameObject sceneToLoad;
 
 
-    public void LoadSceneJeu()
+    public void LoadSceneAsync()
     {
-        SceneManager.LoadScene("Jeu");
+        SceneManager.LoadScene("MoveScene");
 
         StartCoroutine(LoadScreenCoroutine());
     }
@@ -22,12 +22,12 @@ public class LoadGame : MonoBehaviour
         var ecran = Instantiate(sceneToLoad);
         DontDestroyOnLoad(ecran);
 
-        var chargement = SceneManager.LoadSceneJeu("Jeu");
+        var chargement = SceneManager.LoadSceneAsync("MoveScene");
         while (chargement.isDone == false)
         {
             if (chargement.progress >= 1f)
             {
-                chargement.allowSceneactivation = true;
+                chargement.allowSceneActivation = true;
                 // disparition image
             }
 
