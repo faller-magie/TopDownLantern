@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
 
     private bool HitWall = false;
+
+    public bool GetKey = false;
     
     private void OnEnable()
     {
