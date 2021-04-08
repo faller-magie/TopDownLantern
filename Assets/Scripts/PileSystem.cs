@@ -28,5 +28,6 @@ public class PileSystem : MonoBehaviour
     public void PickUpPile()
     {
         timer+=pileDuration;
+        Debug.Log("pile récupéré !"); 
     }
 }
