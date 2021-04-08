@@ -6,15 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: a1b194dda59f8da47924e78b283bb99e
-  - enabled: 0
     path: Assets/Scenes/Mathilde.unity
     guid: dcb3d2a957c3a8b45b121dda5112b85e
   - enabled: 1
-    path: Assets/Scenes/MoveScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Cinematic.unity
+    guid: 34d8fc85609c8b348947211fc2bdbc3f
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: a1b194dda59f8da47924e78b283bb99e
+    path: Assets/Scenes/Game.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

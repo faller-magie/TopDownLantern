@@ -22,7 +22,7 @@ public class LoadGame : MonoBehaviour
         var ecran = Instantiate(sceneToLoad);
         DontDestroyOnLoad(ecran);
 
-        var chargement = SceneManager.LoadSceneAsync("MoveScene");
+        var chargement = SceneManager.LoadSceneAsync("Game");
         chargement.allowSceneActivation = false;
 
         while (chargement.isDone == false)
