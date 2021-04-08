@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PowerUpPile : MonoBehaviour
 {
-   /* private PileSystem pileSystem;
-   private void OnCollisionEnter2D()
-   {
-     pileSystem.PickUpPile();
-   }*/
+    public PileSystem pileSystem;
+
+    void Start()
+    {
+       pileSystem.PickUpPile(gameObject);
+    }
 }
