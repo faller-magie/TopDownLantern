@@ -10,31 +10,33 @@ public class LoadGame : MonoBehaviour
     [SerializeField] private GameObject sceneToLoad;
 
 
-    public void LoadSceneJeu()
+    public void LoadSceneAsync()
     {
         SceneManager.LoadScene("Jeu");
 
         StartCoroutine(LoadScreenCoroutine());
     }
-    
+
+    // IEnumerator LoadingScreenCoroutine()
     IEnumerator LoadScreenCoroutine()
     {
+        //var prefab = Instantiate(loadingScreenPrefab);
         var ecran = Instantiate(sceneToLoad);
+
+        //DontDestroyOnLoad(prefab);
         DontDestroyOnLoad(ecran);
 
-        /*var chargement = SceneManager.LoadSceneJeu("Jeu");
+        var chargement = SceneManager.LoadSceneAsync("Cinematic");
         while (chargement.isDone == false)
         {
             if (chargement.progress >= 1f)
             {
-                chargement.allowSceneactivation = true;
-                // disparition image
-            }*/
+                chargement.allowSceneActivation = true;
+                ecran = GetComponent<Animator>().SetTrigger("Disparition");
+            }
 
             yield return new WaitForSeconds(2);
-       // yield return null;
-    
-    
-
+            yield return null;
+        }
     }
 }

@@ -10,6 +10,16 @@ public class PlayerController : MonoBehaviour
     private Controls controls;
     private Vector2 movement;
     private Rigidbody2D myRB;
+
+    public float lightIntensity;
+
+
+    public float maxIntensity;
+    public float minIntensity;
+
+    private Animator anim;
+
+    private bool HitWall = false;
     
     private void OnEnable()
     {
@@ -33,6 +43,9 @@ public class PlayerController : MonoBehaviour
     {
         myRB = GetComponent<Rigidbody2D>();
 
+        lightIntensity = maxIntensity;
+
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,5 +53,23 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 moveInput = controls.Player.Movement.ReadValue<Vector2>();
         myRB.velocity = moveInput * speed;
+    }
+
+    void Update()
+    {
+        if(lightIntensity > minIntensity)
+        {
+            lightIntensity-=(Time.deltaTime*0.1f);
+        }
+
+        anim.SetFloat("L", lightIntensity);
+        
+    }
+    private void OnEnter2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Mur"))
+        {
+            HitWall = true;
+        }
     }
 }
