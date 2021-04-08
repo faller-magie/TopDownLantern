@@ -12,7 +12,7 @@ public class LoadGame : MonoBehaviour
 
     public void LoadSceneAsync()
     {
-        SceneManager.LoadScene("MoveScene");
+        //SceneManager.LoadScene("MoveScene");
 
         StartCoroutine(LoadScreenCoroutine());
     }
@@ -23,16 +23,17 @@ public class LoadGame : MonoBehaviour
         DontDestroyOnLoad(ecran);
 
         var chargement = SceneManager.LoadSceneAsync("MoveScene");
+        chargement.allowSceneActivation = false;
+
         while (chargement.isDone == false)
         {
-            if (chargement.progress >= 1f)
+            if (chargement.progress >= 0.9f)
             {
                 chargement.allowSceneActivation = true;
-                // disparition image
+                ecran.GetComponent<Animator>().SetTrigger("Disparition");
             }
 
             yield return new WaitForSeconds(2);
-            yield return null;
 
         }
 
