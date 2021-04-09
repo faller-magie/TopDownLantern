@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
     private Animator anim;
 
+    private Animator playerMove;
+
     private bool HitWall = false;
 
     public bool GetKey = false;
