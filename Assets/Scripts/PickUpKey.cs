@@ -8,14 +8,15 @@ public class PickUpKey : MonoBehaviour
 
   public GameObject key;
 
-    public SFXManager sfxbank;
+    //public SFXManager sfxbank;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.tag == "Player")
         {
-            sfxbank.PlayKeySound();
+            //sfxbank.PlayKeySound();
             key.SetActive(true);
+            other.gameObject.GetComponent<PlayerController>().GetKey = true;
             Destroy(gameObject);
         }
     }
