@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
     private Animator anim;
 
+    public GameObject imageWin;
+
     private Animator playerMove;
 
     private bool HitWall = false;
@@ -65,15 +67,28 @@ public class PlayerController : MonoBehaviour
         {
             lightIntensity-=(Time.deltaTime*0.1f);
         }
-
         anim.SetFloat("L", lightIntensity);
-        
+
     }
-    private void OnEnter2D(Collision2D other)
+
+    void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.CompareTag("Mur"))
         {
             HitWall = true;
+        }
+
+        if(other.gameObject.tag == "Porte")
+        {
+            if(GetKey == true)
+            {
+                Destroy(other.gameObject);
+            }
+        }
+
+        if(other.gameObject.tag == "Frigo")
+        {
+            imageWin.SetActive(true);
         }
     }
 }

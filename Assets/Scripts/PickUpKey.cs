@@ -16,6 +16,7 @@ public class PickUpKey : MonoBehaviour
         {
             //sfxbank.PlayKeySound();
             key.SetActive(true);
+            other.gameObject.GetComponent<PlayerController>().GetKey = true;
             Destroy(gameObject);
         }
     }
