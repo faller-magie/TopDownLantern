@@ -20,7 +20,7 @@ public class Cinematic : MonoBehaviour
         var ecran = Instantiate(image);
         DontDestroyOnLoad(ecran);
 
-        var chargement = SceneManager.LoadSceneAsync("Cinematic");
+        var chargement = SceneManager.LoadSceneAsync("Cinematique");
         chargement.allowSceneActivation = false;
 
         while (chargement.isDone == false)
