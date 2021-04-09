@@ -3,30 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class Cinematic : MonoBehaviour
 {
+    [SerializeField] private string sceneName;
+    [SerializeField] private GameObject image;
 
-    public void LancementAnimation()
+
+    public void LoadSceneAsync()
     {
         StartCoroutine(Cinematique());
     }
 
     IEnumerator Cinematique()
     {
-        yield return new WaitForSeconds(4);
+        var ecran = Instantiate(image);
+        DontDestroyOnLoad(ecran);
 
-    }
+        var chargement = SceneManager.LoadSceneAsync("Cinematic");
+        chargement.allowSceneActivation = false;
 
+        while (chargement.isDone == false)
+        {
+            if (chargement.progress >= 0.9f)
+            {
+                chargement.allowSceneActivation = true;
+                ecran.GetComponent<Animator>().SetTrigger("Disparition");
+            }
 
+            yield return new WaitForSeconds(2);
 
-        void Start()
-    {
+        }
 
-    }
-
-
-    void Update()
-    {
-        
     }
 }
