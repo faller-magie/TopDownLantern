@@ -12,8 +12,6 @@ public class LoadGame : MonoBehaviour
 
     public void LoadSceneAsync()
     {
-        //SceneManager.LoadScene("MoveScene");
-
         StartCoroutine(LoadScreenCoroutine());
     }
     
