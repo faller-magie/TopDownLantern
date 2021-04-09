@@ -9,7 +9,10 @@ public class PlayerController : MonoBehaviour
    [SerializeField] private float speed = 8f;
     private Controls controls;
     private Vector2 movement;
+    //private float movement;
     private Rigidbody2D myRB;
+
+    private SpriteRenderer spriteRenderer;
 
     public float lightIntensity;
 
@@ -37,16 +40,28 @@ public class PlayerController : MonoBehaviour
     private void OnMovePerformed(InputAction.CallbackContext obj)
     {
         movement = obj.ReadValue<Vector2>();
+        //movement = obj.ReadValue<float>();
         Debug.Log(movement);
+        spriteRenderer.flipX = (movement.x < 0);
+        /*if (movement.x < 0f)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (movement.x > 0f)
+        {
+            spriteRenderer.flipX = false;
+        }*/
     }
 
     private void OnMoveCanceled(InputAction.CallbackContext obj)
     {
         movement = Vector2.zero;
+        //movement = 0;
     }
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         myRB = GetComponent<Rigidbody2D>();
 
         lightIntensity = maxIntensity;
