@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Cinematic : MonoBehaviour
 {
 
-    private void LancementAnimation()
+    public void LancementAnimation()
     {
         StartCoroutine(Cinematique());
     }
